@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { loginUserApi, getUserById } from '../services/authService'; 
+import { loginUserApi, /*getUserById */} from '../services/authService'; 
 import api from '../services/api'
 
 const useAuth = () => {
     const [userLogged, setUserLogged] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [userFull, setUserFull] = useState({});
+    const [userFull, /*setUserFull*/] = useState({});
     const navigate = useNavigate();
     
 
@@ -16,10 +16,12 @@ const useAuth = () => {
 
       if(userInfo) {
         api.defaults.headers.common['Authorization'] = `Bearer ${userInfo.token}`
-        findUserById(userInfo.id);
+        // findUserById(userInfo.id);
         setUserLogged(true);
        
       }
+
+      
 
       setLoading(false)
     }, [])
@@ -28,7 +30,6 @@ const useAuth = () => {
       const response = await loginUserApi(inputValues)
       const data = await response.data;
 
-      console.log(data);
       localStorage.setItem('userInfo', JSON.stringify(data))
       api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
       navigate("/")
@@ -41,13 +42,13 @@ const useAuth = () => {
       navigate('/login')
     }
 
-    const findUserById = async (idUser) => {
-      const response = await getUserById();
-      setUserFull(response.data)
-      console.log(userFull);
-    }
+    // const findUserById = async (idUser) => {
+    //   const response = await getUserById();
+    //   setUserFull(response.data)
+    //   console.log(userFull);
+    // }
 
-    return {userLogged, userFull, loading, loginUser, logoutUser}
+    return {userLogged, userFull, loading, loginUser, logoutUser }
 }
 
 export default useAuth;

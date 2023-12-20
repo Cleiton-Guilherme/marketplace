@@ -25,4 +25,4 @@ const addProductAPI = (product) =>
     .then((response) => response)
     .catch((err) => err)
 
-export { addProductAPI, findAllProducts, findProductById, updateProductById, deleteProduct }
+export { addProductAPI, findAllProducts, findProductById, updateProductById, deleteProduct };

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
 
 import { findAllCategories } from '../../services/categoryService';
-import { findProductById, updateProductById } from '../../services/productService';
+import {  updateProductById } from '../../services/productService';
 import  { MultiSelect } from 'react-multi-select-component';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,  useParams } from 'react-router-dom'
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -23,15 +22,15 @@ const EditProduct = () => {
     const [selected, setSelected] = useState([]);
 
     useEffect(() => {
-    getCategories()
-    getProductById()
+    getCategories();
+    // getProductById();
 
     }, [])
 
-    const getProductById = async () => {
-      const response = await findProductById(id)
-      setProductForm(response)
-    }
+    // const getProductById = async () => {
+    //   const response = await findProductById(id)
+    //   setProductForm(response)
+    // }
 
     const getCategories = async () => {
       const response = await findAllCategories();
@@ -54,7 +53,7 @@ const EditProduct = () => {
 
     const handleSubmit = async (evento) => {
       evento.preventDefault();
-
+      console.log(productForm)
       const response = await updateProductById(id, productForm);
 
       if(response) {

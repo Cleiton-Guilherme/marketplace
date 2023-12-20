@@ -5,7 +5,7 @@ const productsMock = [
     descricao: "x-Burguer suculento com molho especial",
     precoUnitario: 10,
     imagem: "https://churrasco.coz.br/wp-content/uploads/2021/01/hamburguer-na-churrasqueira.jpg",
-    codigoBarra: 111111
+    codigoBarra: 1234567
   },
   {
     _id: '2',
@@ -20,8 +20,8 @@ const productsMock = [
     nome: "Coca-cola",
     descricao: "Coca cola gelada",
     precoUnitario: 5,
-    imagem: "https://www.banca43.com.br/cdn/imagens/produtos/det/101039-15.webp",
-    codigoBarra: 111111
+    imagem: "https://redemachado.com.br/arquivos/123843.jpg",
+    codigoBarra: 1985432
   }
 ]
 

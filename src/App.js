@@ -3,14 +3,15 @@ import {Routes, Route} from 'react-router-dom'
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Login from './pages/Login/index';
-import {AuthProvider} from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './routes/ProtectedRoute';
-import Register from './pages/Register';
+import Register from './pages/Register/index';
 import Admin from './pages/Admin';
-import AddProduct from './pages/AddProduct';
-import EditProduct from './pages/EditProduct';
+import AddProduct from './pages/AddProduct/index';
+import EditProduct from './pages/EditProduct/index';
 import ProductInfo from './pages/ProductInfo';
 import Cart from './pages/Cart';
+import Complete from './pages/Complete/index'
 
 
 
@@ -35,6 +36,11 @@ function App() {
 <Route path="/cart" element={
       <ProtectedRoute>
         <Cart/>
+    </ProtectedRoute>
+  }/>
+  <Route path="/complete" element={
+      <ProtectedRoute>
+        <Complete/>
     </ProtectedRoute>
   }/>
     <Route path="/login" element={<Login />}/>
