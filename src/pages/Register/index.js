@@ -4,7 +4,7 @@ import { registerUser  } from '../../services/authService';
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-    const [inputValues, setInputValues] = useState({
+    const [inputValues, setInputValues, setLoading] = useState({
         nome: '',
         email:'',
         senha: '',
@@ -23,12 +23,23 @@ const Register = () => {
 
       const handleSubmit = async (evento) => {
         evento.preventDefault();
-        const response = await registerUser(inputValues);
-        if(response.data) {
-            alert(`Usuario ${response.data.nome} Cadastrado com Sucesso!`)
-            navigate('/admin')
+
+      
+        try {
+          const response = await registerUser(inputValues);
+    
+          if (response.data) {
+            alert(`Usuário ${response.data.nome} cadastrado com sucesso!`);
+            navigate('/admin');
+          }
+        } catch (error) {
+          console.error('Erro ao cadastrar usuário:', error);
+          // Adicione uma mensagem de erro amigável para o usuário
+        } finally {
+          setLoading(false);
         }
-      }
+      };
+    
 
     
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { findAllCategories } from '../../services/categoryService';
-import {  updateProductById } from '../../services/productService';
+import {  findProductById, updateProductById } from '../../services/productService';
 import  { MultiSelect } from 'react-multi-select-component';
 import { useNavigate,  useParams } from 'react-router-dom'
 
@@ -21,16 +21,17 @@ const EditProduct = () => {
     const [categories, setCategories] = useState([]);
     const [selected, setSelected] = useState([]);
 
+    const getProductById = async () => {
+      const response = await findProductById(id)
+      setProductForm(response)
+    }
+
     useEffect(() => {
-    getCategories();
-    // getProductById();
+      getProductById();
+      getCategories();
 
-    }, [])
+    }, )
 
-    // const getProductById = async () => {
-    //   const response = await findProductById(id)
-    //   setProductForm(response)
-    // }
 
     const getCategories = async () => {
       const response = await findAllCategories();

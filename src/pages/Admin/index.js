@@ -74,7 +74,7 @@ const Admin = () => {
                 </tr>
               </thead>
               <tbody>
-                {products.map((product) => (
+                {products && products.map((product) => (
                   <tr key={product._id} className="bg-white border-b">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <img

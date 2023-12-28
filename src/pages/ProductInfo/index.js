@@ -14,7 +14,8 @@ const ProductInfo = () => {
 
   useEffect(() => {
     getProductById();
-  }, []);
+    
+  }, );
 
   const getProductById = async () => {
     const response = await findProductById(id);
