@@ -4,7 +4,7 @@ import { registerUser  } from '../../services/authService';
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-    const [inputValues, setInputValues, setLoading] = useState({
+    const [inputValues, setInputValues, /*setLoading*/] = useState({
         nome: '',
         email:'',
         senha: '',
@@ -36,7 +36,7 @@ const Register = () => {
           console.error('Erro ao cadastrar usuário:', error);
           // Adicione uma mensagem de erro amigável para o usuário
         } finally {
-          setLoading(false);
+          //setLoading(false);
         }
       };
     

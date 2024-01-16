@@ -41,8 +41,8 @@ const useAuth = () => {
     }
 
     const findUserById = async (idUser) => {
-      const response = await getUserById();
-      setUserFull(response.data)
+      const response = await getUserById(idUser);
+      setUserFull(response.data);
       console.log(userFull);
     }
 
